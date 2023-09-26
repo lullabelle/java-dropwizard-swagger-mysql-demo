@@ -3,6 +3,8 @@ package org.kainos.ea;
 import io.dropwizard.core.Application;
 import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
+import org.kainos.ea.resources.OrderController;
+import org.kainos.ea.resources.ProductController;
 
 public class DropWizardWebServiceApplication extends Application<DropWizardWebServiceConfiguration> {
 
@@ -25,6 +27,7 @@ public class DropWizardWebServiceApplication extends Application<DropWizardWebSe
                     final Environment environment) {
         // TODO: implement application
         environment.jersey().register(new OrderController());
+        environment.jersey().register(new ProductController());
     }
 
 }

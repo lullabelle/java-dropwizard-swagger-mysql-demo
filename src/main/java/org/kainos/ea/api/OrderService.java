@@ -1,4 +1,6 @@
-package org.kainos.ea;
+package org.kainos.ea.api;
+
+import org.kainos.ea.cli.Order;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package org.kainos.ea;
+package org.kainos.ea.cli;
 
 import java.util.Date;
 
@@ -7,16 +7,19 @@ public class Order {
     private int customerID;
     private Date orderDate;
 
+
+    //constructor
     public Order(int orderID, int customerID, Date orderDate) {
-        this.orderID = orderID;
-        this.customerID = customerID;
-        this.orderDate = orderDate;
+        setOrderID(orderID);
+        setCustomerID(customerID);
+        setOrderDate(orderDate);
     }
+
+    //getters and setters
 
     public int getOrderID() {
         return orderID;
     }
-
     public void setOrderID(int orderID) {
         this.orderID = orderID;
     }
