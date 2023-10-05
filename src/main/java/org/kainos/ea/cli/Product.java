@@ -1,18 +1,22 @@
 package org.kainos.ea.cli;
 
-public class Product {
+public class Product implements Comparable<Product>{
     private int productID;
     private String name;
+
+    private String Description;
     private double price;
 
     //constructor
-    public Product(int productID, String name, double price) {
-        setProductID (productID);
-        setName(name);
-        setPrice(price);
+
+
+    public Product(int productID, String name, String description, double price) {
+        this.productID = productID;
+        this.name = name;
+        Description = description;
+        this.price = price;
     }
 
-    //Getters & Setters
     public int getProductID() {
         return productID;
     }
@@ -29,16 +33,29 @@ public class Product {
         this.name = name;
     }
 
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
-        price = price;
+        this.price = price;
     }
 
+    @Override
+    public int compareTo(Product product) {
+        return Double.compare(this.getPrice(), product.getPrice());
+    }
 
-
-
-
+    @Override
+    public String toString(){
+        return "Product Name: " + this.getName() + ", Product Price: " + this.getPrice();
+    }
 }

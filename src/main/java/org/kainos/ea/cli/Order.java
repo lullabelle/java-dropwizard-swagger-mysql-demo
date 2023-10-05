@@ -1,8 +1,9 @@
 package org.kainos.ea.cli;
 
+
 import java.util.Date;
 
-public class Order {
+public class Order implements Comparable<Order>{
     private int orderID;
     private int customerID;
     private Date orderDate;
@@ -38,5 +39,15 @@ public class Order {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    @Override
+    public int compareTo(Order order) {
+        return this.getOrderDate().compareTo(order.getOrderDate());
+    }
+    public String toString() {
+        return "Order iD: " + this.getOrderID() +
+                ", Customer ID: " + this.getCustomerID() +
+                ", Order Date: " + this.getOrderDate();
     }
 }

@@ -1,8 +1,11 @@
 package org.kainos.ea;
 
-import io.dropwizard.core.Application;
-import io.dropwizard.core.setup.Bootstrap;
-import io.dropwizard.core.setup.Environment;
+
+import io.dropwizard.Application;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.kainos.ea.resources.OrderController;
 import org.kainos.ea.resources.ProductController;
 
@@ -10,6 +13,7 @@ public class DropWizardWebServiceApplication extends Application<DropWizardWebSe
 
     public static void main(final String[] args) throws Exception {
         new DropWizardWebServiceApplication().run(args);
+
     }
 
     @Override
@@ -19,7 +23,13 @@ public class DropWizardWebServiceApplication extends Application<DropWizardWebSe
 
     @Override
     public void initialize(final Bootstrap<DropWizardWebServiceConfiguration> bootstrap) {
-        // TODO: application initialization
+        bootstrap.addBundle(new SwaggerBundle<DropWizardWebServiceConfiguration>(){
+
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(DropWizardWebServiceConfiguration configuration) {
+                return configuration.getSwagger();
+            }
+        });
     }
 
     @Override
